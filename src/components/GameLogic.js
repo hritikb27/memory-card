@@ -11,8 +11,8 @@ function GameLogic() {
     function setNewRandNumArray() {
         const newArray = []
 
-        while (newArray.length < 5) {
-            const randNum = Math.floor(Math.random() * 5);
+        while (newArray.length < 10) {
+            const randNum = Math.floor(Math.random() * 10);
             if (!newArray.includes(randNum)) {
                 newArray.push(randNum)
             }
@@ -24,14 +24,25 @@ function GameLogic() {
     function handleClick(id) {
         setNewRandNumArray()
         if (streak.includes(id)) {
+            setStreak([])
             setScore(0)
         } else {
             setStreak(prevState => {
                 return [...prevState, id]
             })
             setScore(prevState=> prevState+1)
-            setBestScore(prevState=> prevState+1)
+            
+            checkBestScore()
         }
+    }
+
+    function checkBestScore(){
+        if(bestScore<=score){
+            setBestScore(prevState=>prevState+1)
+        }else{
+            return
+        }
+        
     }
 
 

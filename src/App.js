@@ -1,10 +1,8 @@
-import Display from "./components/Display"
 import GameLogic from "./components/GameLogic";
-import Scores from "./components/Scores";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor:'yellow', height:'100vh'}}>
       <header>
         <h1>Memory Game!</h1>
       </header>
